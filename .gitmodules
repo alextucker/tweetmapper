@@ -1,0 +1,6 @@
+[submodule "GoogleMapV3"]
+	path = GoogleMapV3
+	url = git@github.com:alextucker/jquery-GoogleMapV3.git
+[submodule "js/GoogleMapV3"]
+	path = js/GoogleMapV3
+	url = git@github.com:alextucker/jquery-GoogleMapV3.git
