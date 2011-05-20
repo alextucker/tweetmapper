@@ -24,6 +24,7 @@ $(function(){
    
       
    $('#map').GoogleMapV3('addListener', {action: function(event){
+      $('#get_tweets').hide(); 
      if (global.tweet_marker) {
       global.tweet_marker.setMap(null);
      }
