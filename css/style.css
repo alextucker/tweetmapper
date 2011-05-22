@@ -48,14 +48,21 @@ h1 {
 }
 
 #holder {
-   height: 100px;
+   min-height: 100px;
 }
 
-#tweet_stream {
+#tweet_stream li {
    height: 100px;
    border: 1px solid black;
    border-radius: 10px;
    overflow: hidden;
+   display: none;
+   margin-bottom: 5px;
+}
+
+#tweet_stream {
+   margin-top: 10px;
+   list-style-type: none;
 }
 
 #picture {

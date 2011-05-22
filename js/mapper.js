@@ -19,7 +19,6 @@ $(function(){
       //$('#map').GoogleMapV3({height:$('#map').height(), width: $('#map').width(),});
    });
 
-   $('#tweet_stream').hide();
    $('#get_tweets').hide();
    
       
@@ -63,6 +62,7 @@ $(function(){
    }
 
    function displayTweets(tweets, options) {
+      $('#tweet_stream').html('');
       var defOptions = {
 	 speed: 5000,
       }
@@ -70,40 +70,26 @@ $(function(){
       var count = 0;
 
       $.each(tweets, function(i, tweet) {
-	 global.tweet_q.push(setTimeout(function(){
-	    newTweetBox(tweet.profile_image_url, tweet.from_user, tweet.text);
-	 }, 1000+(count*5000)));
+	 newTweetBox(tweet.profile_image_url, tweet.from_user, tweet.text);
 	 count++;
       });
-      setTimeout(function(){
-	 $('#get_tweets').fadeIn('slow');
-      }, 1000+(count*5000));
+
+      showTweet();
    }
 
    function newTweetBox(picture, from, text) {
       console.log(from);
-      $('#tweet_stream').slideUp();
-      setTimeout(function() {
-	 global.tweet_q.pop();
-	 $('#picture img').attr('src', picture);
-	 $('#picture p').html(from);
-	 $('#tweet').html(text);
-      }, 400);
-      $('#tweet_stream').slideDown();
+      
+      var next = '<li><div id="picture"><img src="' + picture + '" /><p>'+from+'<p></div><div id="tweet">'+text+'</div></li>';
+      $('#tweet_stream').append(next);
    }
 
-   function clearQ() {
-      for (var t in global.tweet_q) {
-	 console.log(t);
-	 clearTimeout(t);
-      }
-      global.tweet_q = [];
+   function showTweet() {
+      $('#tweet_stream > li:hidden:last').slideDown('slow', function() {
+	 setTimeout(showTweet, 3000);
+      });
    }
 
-   $('#cancel').click(function(){
-      clearQ();   
-   });
-
-
-
+   
+   
 })();
