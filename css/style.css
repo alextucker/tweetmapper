@@ -60,6 +60,10 @@ h1 {
    margin-bottom: 5px;
 }
 
+#tweet_stream li a {
+   color: black;
+}
+
 #tweet_stream {
    margin-top: 10px;
    list-style-type: none;

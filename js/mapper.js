@@ -19,9 +19,6 @@ $(function(){
       //$('#map').GoogleMapV3({height:$('#map').height(), width: $('#map').width(),});
    });
 
-   $('#get_tweets').hide();
-   
-      
    $('#map').GoogleMapV3('addListener', {action: function(event){
       $('#get_tweets').hide(); 
      if (global.tweet_marker) {
@@ -79,8 +76,7 @@ $(function(){
 
    function newTweetBox(picture, from, text) {
       console.log(from);
-      
-      var next = '<li><div id="picture"><img src="' + picture + '" /><p>'+from+'<p></div><div id="tweet">'+text+'</div></li>';
+      var next = '<li><div id="picture"><img src="' + picture + '" /><p><a href="http://www.twitter.com/'+from+'" target="_blank">'+ from +'</a><p></div><div id="tweet">'+text+'</div></li>';
       $('#tweet_stream').append(next);
    }
 
