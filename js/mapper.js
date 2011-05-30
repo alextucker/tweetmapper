@@ -26,8 +26,8 @@ $(function(){
      }
      console.log('Map Clicked', event);
      global.tweet_marker = $('#map').GoogleMapV3('addMarker', {lat: event.latLng.Ja, lng: event.latLng.Ka});
-     getTweets({lat: event.latLng.Ja, lng: event.latLng.Ka});
-     global.start_lat = event.latLng.Ja;
+     getTweets({lat: event.latLng.Ia, lng: event.latLng.Ka});
+     global.start_lat = event.latLng.Ia;
      global.start_lng = event.latLng.Ka;
    }});
 
