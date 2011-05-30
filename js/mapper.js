@@ -25,10 +25,10 @@ $(function(){
       global.tweet_marker.setMap(null);
      }
      console.log('Map Clicked', event);
-     global.tweet_marker = $('#map').GoogleMapV3('addMarker', {lat: event.latLng.Ja, lng: event.latLng.Ka});
-     getTweets({lat: event.latLng.Ia, lng: event.latLng.Ka});
-     global.start_lat = event.latLng.Ia;
-     global.start_lng = event.latLng.Ka;
+     global.tweet_marker = $('#map').GoogleMapV3('addMarker', {lat: event.latLng.lat(), lng: event.latLng.lng()});
+     getTweets({lat: event.latLng.lat(), lng: event.latLng.lng()});
+     global.start_lat = event.latLng.lat();
+     global.start_lng = event.latLng.lng();
    }});
 
    $('#get_tweets').live('click', function() {
